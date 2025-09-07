@@ -1,6 +1,10 @@
-run = "cowsay Configure me!"
-entrypoint = "README.md"
+run = "dotnet run main.cs"
+entrypoint = "main.cs"
+modules = ["dotnet-9.0"]
+hidden = [".git", "packages.lock.json"]
 
 [nix]
-channel = "stable-24_05"
-packages = ["cowsay"]
+channel = "stable-24_11"
+
+[agent]
+expertMode = true

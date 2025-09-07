@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>OavadiahShalikhadonai.JsonStorage</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Ovadiah Shalikhadonai</Authors>
+    <Description>This contains functions for creating and managing a json file to store and manage save data for your applications with ease.</Description>
+  </PropertyGroup>
+
+</Project>

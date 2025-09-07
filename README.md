@@ -1,4 +1,4 @@
-# JsonStorage 1.0.0
+# JsonStorage
 ## By Ovadiah Shalikhadonai
 
 ### Introduction
@@ -47,6 +47,7 @@ This is used to quickly define a set of key/value pairs in the ``storageObject``
 ```csharp
 Storage.QuickDefine(["Greeting", "Language"], ["Hello", "English"]);
 ```
+
 This will add the key value pairs ``Greeting:Hello`` and ``Language:English`` to the ``storageObject``.
 **GetKeys()**
 ``<public string[]>``
@@ -54,6 +55,3 @@ This returns an array containing the keys in the dictionary
 **Clear(bool save = true)**
 ``<public void>``
 This removes all the key-value pairs from the ``storageObject``. You can add the argument ``false`` if you don't want it to save the storage file after being called.
-### Changelog
-*1.1.0*
-Added two functions: ``GetKeys()`` and ``Clear()``

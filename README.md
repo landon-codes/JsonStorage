@@ -52,6 +52,6 @@ This will add the key value pairs ``Greeting:Hello`` and ``Language:English`` to
 **GetKeys()**
 ``<public string[]>``
 This returns an array containing the keys in the dictionary
-**Clear(bool save = true)**
+**Clear(bool save = false)**
 ``<public void>``
-This removes all the key-value pairs from the ``storageObject``. You can add the argument ``false`` if you don't want it to save the storage file after being called.
+This removes all the key-value pairs from the ``storageObject``. You can add the argument ``true`` if you don't it to save the storage file after being called.

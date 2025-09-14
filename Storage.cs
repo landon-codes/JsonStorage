@@ -50,7 +50,7 @@ public class Storage
         return storageObject.Keys.ToArray();
     }
 
-    public void Clear(bool save = true)
+    public void Clear(bool save = false)
     {
         
         string[] keys = GetKeys();

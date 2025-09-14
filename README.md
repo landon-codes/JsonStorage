@@ -33,22 +33,26 @@ public class Storage
 This is the public dictionary where you will interact with your data.
 
 **file**
+
 ``<private string>``
 
 This is where the file location is stored when the class is created.
 ### Functions
 
 **Check()**
+
 ``<public void>``
 
 This function is used to make sure there is a storage file. If there is not a file at the specified location from instantation, it will create one and prepare an empty json object (``{}``).
 
 **Load()**
+
 ``<public void>``
 
 This loads the data from the json file to the ``storageObject`` dictionary so that it can be used.
 
 **Save()**
+
 ``<public void>``
 
 This saves the data from the ``storageObject`` onto the json file.
@@ -84,4 +88,5 @@ This removes all the key-value pairs from the ``storageObject``. You can add the
 **1.1.0**
 
 The clear function no longer requires input to stop it from saving automatically, and requires explicit input to save instead.
+
 

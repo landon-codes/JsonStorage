@@ -6,7 +6,7 @@ using System.Linq;
 
 public class Storage
 {
-    public Dictionary<string, dynamic?> storageObject = new Dictionary<string, dynamic?>();
+    public Dictionary<dynamic, dynamic?> storageObject = new Dictionary<dynamic, dynamic?>();
     private string file;
 
     public Storage(string filePath)
@@ -24,7 +24,7 @@ public class Storage
     public void Load()
     {
         Check();
-        Dictionary<string, dynamic?>? loadObject = JsonSerializer.Deserialize<Dictionary<string, dynamic?>>(File.ReadAllText(file));
+        Dictionary<dynamic, dynamic?>? loadObject = JsonSerializer.Deserialize<Dictionary<dynamic, dynamic?>>(File.ReadAllText(file));
         if (loadObject != null)
         {
             storageObject = loadObject;
@@ -37,7 +37,7 @@ public class Storage
         File.WriteAllText(file, stringObject);
     }
 
-    public void QuickDefine(string[] keys, dynamic?[] values)
+    public void QuickDefine(dynamic[] keys, dynamic?[] values)
     {
         for (int i = 0; i < keys.Length; i++)
         {
@@ -45,7 +45,7 @@ public class Storage
         }
     }
 
-    public string[] GetKeys()
+    public dynamic[] GetKeys()
     {
         return storageObject.Keys.ToArray();
     }
@@ -53,7 +53,7 @@ public class Storage
     public void Clear(bool save = false)
     {
         
-        string[] keys = GetKeys();
+        dynamic[] keys = GetKeys();
         for (int i = 0; i < keys.Length; i++)
         {
             storageObject.Remove(keys[i]);

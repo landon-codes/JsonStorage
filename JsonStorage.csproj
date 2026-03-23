@@ -9,10 +9,16 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 
-    <PackageId>JsonStorage</PackageId>
-    <Version>1.1.0</Version>
-    <Authors>Ovadiah Shalikhadonai</Authors>
+    <PackageId>landon-codes.JsonStorage</PackageId>
+    <Version>1.1.1</Version>
+    <Authors>landon-codes</Authors>
     <Description>This contains functions for creating and managing json files in your .net project.</Description>
+
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/landon-codes/JsonStorage</RepositoryUrl>
+    <PackageTags>csharp json data file-manipulation</PackageTags>
+    <!-- <PackageIcon></PackageIcon -->
   </PropertyGroup>
 
 </Project>

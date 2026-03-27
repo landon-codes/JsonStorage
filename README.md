@@ -17,17 +17,24 @@ JsonStorage provides an easy-to-use interface for storing and retrieving data in
 
 ## Installation
 
-### NuGet Package
-
-```bash
-dotnet add package JsonStorage
-```
-
 ### Manual Installation
 
 1. Clone or download this repository
 2. Add the `JsonStorage.csproj` to your solution
-3. Reference the JsonStorage project in your application
+3. Reference the project in your application
+
+### Binary Installation
+
+1. Download the Nuget package file from the [GitHub repository's](https://github.com/landon-codes/JsonStorage) release page
+2. Add a reference to the installed Nuget package
+3. Reference the  project in your application
+
+### CLI Installation
+
+1. Open a CLI terminal
+2. Navigate to your project directory
+3. Run `dotnet package add landon-codes.JsonStorage` 
+4. Reference the project in your application
 
 ## Usage
 
@@ -109,6 +116,8 @@ storage.Clear(save: true);
 - `GetKeys()` - Returns an array of all keys in the storage
 - `Clear(bool save = false)` - Removes all data from storage, optionally saves immediately
 
+*Note* - Load and Save operations automatically run the `Check()` function automatically.
+
 #### Properties
 - `storageObject` - Dictionary containing the key-value data
 
@@ -125,6 +134,6 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Author
+## Authors
 
-Ovadiah Shalikhadonai
+landon-codes and contributors

@@ -37,7 +37,7 @@ public class Storage<T> : IStorage
     public void Save()
     {
         Check();
-        string stringObject = JsonSerializer.Serialize(container, new JsonSerializerOptions { WriteIndented = true });
+        string stringObject = JsonSerializer.Serialize(this.container, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(file, stringObject);
     }
 }

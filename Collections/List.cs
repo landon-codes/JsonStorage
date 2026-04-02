@@ -30,6 +30,13 @@ public class StorageList<T> : Storage<T> where T : new()
         }
     }
 
+    public new void Save()
+    {
+        Check();
+        string stringObject = JsonSerializer.Serialize(this.container, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(file, stringObject);
+    }
+
     // Shorthand for StorageList.container.Count
     public int Count()
     {

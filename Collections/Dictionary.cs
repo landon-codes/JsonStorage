@@ -30,6 +30,13 @@ public class StorageDictionary<TKey, TValue> : Storage<Dictionary<TKey, TValue>>
         }
     }
 
+    public new void Save()
+    {
+        Check();
+        string stringObject = JsonSerializer.Serialize(this.container, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(file, stringObject);
+    }
+
     // Shorthand for StorageDictionary.container.Count
     public int Count()
     {

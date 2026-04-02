@@ -38,4 +38,12 @@ public class StorageArray<T> : Storage<T> where T : new()
     {
         return container.Length;
     }
+
+    // Override Save to serialize the array properly
+    public new void Save()
+    {
+        Check();
+        string stringObject = JsonSerializer.Serialize(this.container, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(file, stringObject);
+    }
 }

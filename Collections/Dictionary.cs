@@ -2,6 +2,7 @@ namespace JsonStorage;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Linq;
 
 public class StorageDictionary<TKey, TValue> : Storage<Dictionary<TKey, TValue>> where TKey : notnull
 {
@@ -41,5 +42,10 @@ public class StorageDictionary<TKey, TValue> : Storage<Dictionary<TKey, TValue>>
     public int Count()
     {
         return container.Count;
+    }
+
+    public TKey[] GetKeys()
+    {
+        return container.Keys.ToArray();
     }
 }

@@ -38,88 +38,55 @@ JsonStorage provides an easy-to-use interface for storing and retrieving data in
 
 ## Usage
 
-### Basic Usage
+JsonStorage provides several classes to manage Json files in your .NET projects.
+- `Storage<T>`
+- `StorageArray<>`
+- `StorageList`
+- `StorageDictionary`
 
-```csharp
-using JsonStorage;
+*There is also the interface IStorage which can be used for making your own classes.*
 
-// Create a new storage instance
-Storage storage = new Storage("data.json");
+### `Storage<T>`
 
-// Load existing data or create new file
-storage.Load();
-
-// Set some values
-storage.storageObject["name"] = "John Doe";
-storage.storageObject["age"] = 30;
-storage.storageObject["isActive"] = true;
-
-// Save to file
-storage.Save();
-```
-
-### Bulk Operations
-
-```csharp
-// Define multiple keys and values at once
-dynamic[] keys = { "setting1", "setting2", "setting3" };
-dynamic?[] values = { "value1", 42, true };
-
-storage.QuickDefine(keys, values);
-storage.Save();
-```
-
-### Retrieving Data
-
-```csharp
-// Load data from file
-storage.Load();
-
-// Access values
-string name = storage.storageObject["name"];
-int age = storage.storageObject["age"];
-bool isActive = storage.storageObject["isActive"];
-```
-
-### Getting All Keys
-
-```csharp
-dynamic[] keys = storage.GetKeys();
-foreach (var key in keys)
-{
-    Console.WriteLine($"Key: {key}, Value: {storage.storageObject[key]}");
-}
-```
-
-### Clearing Storage
-
-```csharp
-// Clear all data
-storage.Clear();
-
-// Clear and save immediately
-storage.Clear(save: true);
-```
-
-## API Reference
-
-### Storage Class
-
-#### Constructor
-- `Storage(string filePath)` - Creates a new storage instance with the specified file path
-
-#### Methods
-- `Check()` - Ensures the storage file exists, creates an empty JSON object if it doesn't
-- `Load()` - Loads data from the JSON file into memory
-- `Save()` - Saves the current storage object to the JSON file
-- `QuickDefine(dynamic[] keys, dynamic?[] values)` - Sets multiple key-value pairs at once
-- `GetKeys()` - Returns an array of all keys in the storage
-- `Clear(bool save = false)` - Removes all data from storage, optionally saves immediately
-
-*Note* - Load and Save operations automatically run the `Check()` function automatically.
+This is the first class. It is intended to be usable with any data type that System.Text.Json can serialize. It has the least functionality, and requires the most setup but allows functionality for any other data types that don't have built-in functionality.
 
 #### Properties
-- `storageObject` - Dictionary containing the key-value data
+
+- `public T? container`
+
+This is the object containts the data you will be working with. It requires setup in your program.
+
+```csharp
+// Initialize a Storage instance for a string
+Storage<string> example = new Storage<string>("file.json");
+
+// Set the container property to a string containing "Hello, World!"
+example.container = "Hello, World!";
+```
+
+- `private string file`
+
+This contains the file path for reading/writing your Json file. It is assigned during initialization and cannot be changed without creating a new instance.
+
+#### Methods
+
+- `public Storage(string path)`
+
+This is the constructor for the class. It's only argument is the path to the file you are wanting to edit.
+
+- `public void Check()`
+
+This checks to make sure the file you are editing exists. If it does not, a valid file will automatically be created.
+
+This method is also called in the Load() and Save() methods minimize bugs/errors.
+
+- `public void Load()`
+
+This loads the file into your program for you to work with.
+
+- `public void Save()`
+
+This writes your current container object to the file.
 
 ## Requirements
 

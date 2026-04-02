@@ -4,9 +4,15 @@ using System.IO;
 using System.Text.Json;
 using System.Linq;
 
-public class Storage
+public interface IStorage
 {
-    public Dictionary<dynamic, dynamic?> storageObject = new Dictionary<dynamic, dynamic?>();
+    void Load();
+    void Save();
+}
+
+public class Storage<T> : IStorage
+{
+    public T? container; 
     private string file;
 
     public Storage(string filePath)
@@ -24,43 +30,16 @@ public class Storage
     public void Load()
     {
         Check();
-        Dictionary<dynamic, dynamic?>? loadObject = JsonSerializer.Deserialize<Dictionary<dynamic, dynamic?>>(File.ReadAllText(file));
+        T? loadObject = JsonSerializer.Deserialize<T>(File.ReadAllText(file));
         if (loadObject != null)
         {
-            storageObject = loadObject;
+            container = loadObject;
         }
     }
     public void Save()
     {
         Check();
-        string stringObject = JsonSerializer.Serialize(storageObject, new JsonSerializerOptions { WriteIndented = true });
+        string stringObject = JsonSerializer.Serialize(container, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(file, stringObject);
-    }
-
-    public void QuickDefine(dynamic[] keys, dynamic?[] values)
-    {
-        for (int i = 0; i < keys.Length; i++)
-        {
-            storageObject[keys[i]] = values[i];
-        }
-    }
-
-    public dynamic[] GetKeys()
-    {
-        return storageObject.Keys.ToArray();
-    }
-
-    public void Clear(bool save = false)
-    {
-        
-        dynamic[] keys = GetKeys();
-        for (int i = 0; i < keys.Length; i++)
-        {
-            storageObject.Remove(keys[i]);
-        }
-        if (save)
-        {
-            Save();
-        }
     }
 }

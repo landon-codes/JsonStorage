@@ -132,6 +132,51 @@ Returns the container length.
 
 This writes the container to the file.
 
+### `StorageList<T>`
+
+This uses `System.Collections.Generic.List<T>`; it allows users to read/write dynamic lists to Json files.
+
+```csharp
+// Creates a new instance of StorageList
+StorageList<T> example = new StorageList<T>("example.json");
+
+// Adds two items to the container
+example.container.Add("foo");
+example.container.Add("bar");
+```
+
+#### Properties
+
+- `public new List<T> container`
+
+This is the list you will work with in your program.
+
+- `private string file`
+
+This contains the path to the file that you are going to work with in your project. This cannot be changed once the instance is created.
+
+#### Methods
+
+- `public StorageList(string filePath)`
+
+This contains the path to the Json file you are going to be working with.
+
+- `public void Clear()`
+
+This removes all the items from the container.
+
+- `public new void Load()`
+
+This loads the file into your container.
+
+- `public new void Save()`
+
+This writes the container into the file.
+
+- `public int Count()`
+
+This returns the count of items in the container.
+
 ## Requirements
 
 - .NET 9.0 or later

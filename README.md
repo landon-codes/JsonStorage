@@ -88,6 +88,50 @@ This loads the file into your program for you to work with.
 
 This writes your current container object to the file.
 
+### `StorageArray<T>`
+
+This class provides built in functionality for reading/writing C# arrays into Json files.
+
+```csharp
+// Creates a Storage array instance containing 3 items
+StorageArray<int> example = new StorageArray<int>("example.json", 3);
+
+// Assigns the third item in the array to 7
+examle.container[2] = 7;
+```
+
+#### Properties
+
+- `public new T[] container`
+
+This is the object that you will work with. It's size is assigned when the object is created.
+
+- `private string file`
+
+This contains the file path to the file you will be working with in your program. This cannot be changed without creating a new instance.
+
+#### Methods
+
+- `public StorageArray(string filePath, int size)`
+
+This is the constructor for a StorageArray instance. It takes a filepath and the size of the array an input.
+
+- `public void Clear()`
+
+This resets all items in the container to their default value.
+
+- `public new void Load()`
+
+This loads the information from the file listed into the container.
+
+- `public int Length()`0
+
+Returns the container length.
+
+- `public new void Save()`
+
+This writes the container to the file.
+
 ## Requirements
 
 - .NET 9.0 or later

@@ -177,6 +177,55 @@ This writes the container into the file.
 
 This returns the count of items in the container.
 
+### `StorageDictionary<TKey, TValue>`
+
+This has build in functionality for reading/writing Json files with `System.Collections.Generic.Dictionary<TKey, TValue>`.
+
+```csharp
+// Create a new StorageDictionary instance 
+StorageDictionary<string, string> example = new StorageDictionary<string, string>("example.json");
+
+// Adds two items two the container
+example.container["name"] = "Jhon Doe";
+example.container["occupation"] = "None";
+```
+
+#### Properties
+
+- `public new Dictionary<TKey, TValue> container`
+
+This is the object you will be working with in your program.
+
+- `private string filePath`
+
+This stores the path to the file you are working with. It cannot be changed later.
+
+#### Methods
+
+- `public StorageDictionary(string filePath)`
+
+This is the contructor for creating a new instance. It takes the path to the file as input.
+
+- `public void Clear()`
+
+This removes all key-value pairs from the container.
+
+- `public new void Load()`
+
+This loads the file into the container.
+
+- `public new void Save()`
+
+This writes the container to the file.
+
+- `public int Count()`
+
+Returns the number of key-value pairs that are present in the container.
+
+- `public TKey[] GetKeys()`
+
+Returns an array containing all the keys present in the dictionary.
+
 ## Requirements
 
 - .NET 9.0 or later

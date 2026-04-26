@@ -40,7 +40,7 @@ JsonStorage provides an easy-to-use interface for storing and retrieving data in
 
 JsonStorage provides several classes to manage Json files in your .NET projects.
 - `Storage<T>`
-- `StorageArray<>`
+- `StorageArray<T>`
 - `StorageList`
 - `StorageDictionary`
 
@@ -48,7 +48,7 @@ JsonStorage provides several classes to manage Json files in your .NET projects.
 
 ### `Storage<T>`
 
-This is the first class. It is intended to be usable with any data type that System.Text.Json can serialize. It has the least functionality, and requires the most setup but allows functionality for any other data types that don't have built-in functionality.
+This is the first class. It is intended to be usable with any data type that System.Text.Json can serialize. It has the least functionality, and requires the most setup, but allows functionality for any other data types that don't have built-in functionality.
 
 #### Properties
 
@@ -124,7 +124,7 @@ This resets all items in the container to their default value.
 
 This loads the information from the file listed into the container.
 
-- `public int Length()`0
+- `public int Length()`
 
 Returns the container length.
 
@@ -186,7 +186,7 @@ This has build in functionality for reading/writing Json files with `System.Coll
 StorageDictionary<string, string> example = new StorageDictionary<string, string>("example.json");
 
 // Adds two items two the container
-example.container["name"] = "Jhon Doe";
+example.container["name"] = "John Doe";
 example.container["occupation"] = "None";
 ```
 

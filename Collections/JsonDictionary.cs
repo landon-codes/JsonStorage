@@ -61,4 +61,9 @@ public class JsonDictionary<TKey, TValue> : IStorage where TKey : notnull
 			_container = newContainer;
 		}
 	}
+
+	public Dictionary<TKey, TValue>.Enumerator GetEnumerator()
+	{
+		return _container.GetEnumerator();
+	}
 }

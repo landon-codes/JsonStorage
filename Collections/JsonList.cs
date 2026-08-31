@@ -90,8 +90,8 @@ public class JsonList<T> : IStorage
 		return _container.GetEnumerator();
 	}
 
-	public static implicit operator List<T>(JsonList list)
+	public static implicit operator List<T>(JsonList<T> list)
 	{
 		return list._container;
-	{
+	}
 }

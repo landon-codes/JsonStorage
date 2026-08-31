@@ -52,3 +52,6 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# If a .sln file is needed, this can be removed. But as of now no .sln file is needed.
+*.sln

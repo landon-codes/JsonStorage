@@ -67,7 +67,7 @@ public class JsonDictionary<TKey, TValue> : IStorage where TKey : notnull
 		return _container.GetEnumerator();
 	}
 
-	public static implicit operator Dictionary<TKey, TValue>(JsonDictionary dict)
+	public static implicit operator Dictionary<TKey, TValue>(JsonDictionary<TKey, TValue> dict)
 	{
 		return dict._container;
 	}

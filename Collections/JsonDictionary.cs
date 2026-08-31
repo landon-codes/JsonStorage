@@ -67,6 +67,44 @@ public class JsonDictionary<TKey, TValue> : IStorage where TKey : notnull
 		return _container.GetEnumerator();
 	}
 
+	public void Add(TKey key, TValue value)
+	{
+		_container.Add(key, value);
+	}
+
+	public void Remove(TKey key)
+	{
+		_container.Remove(key);
+	}
+
+	public void Clear()
+	{
+		_container.Clear();
+	}
+
+	public bool TryAdd(TKey key, TValue value)
+	{
+		return _container.TryAdd(key, value);
+	}
+
+	public bool TryGetValue(TKey key, out TValue? returnedValue)
+	{
+		var hasKey = _container.TryGetValue(key, out var value);
+		returnedValue = value;
+
+		return hasKey;
+	}
+
+	public bool ContainsKey(TKey key)
+	{
+		return _container.ContainsKey(key);
+	}
+
+	public bool ContainsValue(TValue value)
+	{
+		return _container.ContainsValue(value);
+	}
+
 	public static implicit operator Dictionary<TKey, TValue>(JsonDictionary<TKey, TValue> dict)
 	{
 		return dict._container;
